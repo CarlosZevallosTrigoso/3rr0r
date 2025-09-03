@@ -48,9 +48,15 @@ export default async function handler(req, res) {
 
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
     const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-    const newPage = pdfDoc.addPage();
-    const { width, height } = newPage.getSize();
 
+// Obtenemos la primera página del documento original
+    const originalPages = pdfDoc.getPages();
+    const firstPage = originalPages[0];
+    const { width, height } = firstPage.getSize(); // <-- Guardamos su tamaño
+
+// Creamos la nueva página usando el tamaño del original
+    const newPage = pdfDoc.addPage([width, height]);
+   
     const textContent = `
       --- Registro de Descarga ---
       Documento: ${requestedFile}
