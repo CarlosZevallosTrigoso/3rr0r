@@ -1,107 +1,178 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3rr0r.xyz - Proyectos</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3rror.xyz - Información</title>
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --link-color: #007bff;
-            --secondary-text-color: #666666;
-            --border-color: #eeeeee;
-        }
+      /* Estilo para replicar la estética del PDF */
+      @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto+Mono:wght@400;500&display=swap');
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            display: flex; /* Para centrar el contenido verticalmente */
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Ocupar toda la altura de la ventana */
-        }
+      body {
+          font-family: 'Lora', sans-serif;
+          background-color: #ffffff;
+          color: #111111;
+          line-height: 1.6;
+          width: 60%;
+          margin: 40px 0 40px 15%;
+          padding: 0 20px;
+      }
 
-        .container {
-            max-width: 600px; /* Ancho máximo como en tu imagen */
-            margin: auto; /* Centrar horizontalmente */
-            padding: 2rem;
-            text-align: center; /* Centrar todo el texto */
-        }
+      a {
+          color: #0000ff;
+          text-decoration: underline;
+      }
 
-        .header-content {
-            margin-bottom: 2.5rem; /* Espacio entre el título y la lista */
-        }
+      a:hover {
+          text-decoration: none;
+      }
 
-        .header-content h1 {
-            font-size: 3rem; /* Tamaño de fuente grande para el título "A" */
-            margin: 0;
-            line-height: 1; /* Eliminar espacio extra en línea */
-        }
+      header {
+          border-left: 2px solid #ccc;
+          padding-left: 15px;
+          margin-bottom: 30px;
+          font-family: 'Lora', sans-serif;
+          font-size: 1.1rem;
+      }
 
-        .header-content .subtitle {
-            font-size: 1.1rem; /* Tamaño para el subtítulo */
-            color: var(--secondary-text-color);
-            margin-top: 0.5rem; /* Espacio entre título y subtítulo */
-        }
+      section {
+          margin-bottom: 30px;
+      }
 
-        .download-list {
-            list-style: none; /* Eliminar viñetas */
-            padding-left: 0;
-            margin: 0; /* Eliminar margen predeterminado de ul */
-        }
+      h2 {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-bottom: 10px;
+      }
 
-        .download-list li {
-            margin-bottom: 0.75rem; /* Espacio entre los elementos de la lista */
-        }
+      h3 {
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
 
-        .download-list a {
-            color: var(--link-color);
-            text-decoration: none;
-            font-size: 1.2rem; /* Tamaño de fuente para los enlaces */
-            transition: color 0.2s ease-in-out;
-        }
+      ol, ul {
+          padding-left: 20px;
+      }
 
-        .download-list a:hover {
-            text-decoration: underline;
-            color: #0056b3; /* Color más oscuro al pasar el ratón */
-        }
+      li {
+          margin-bottom: 5px;
+      }
 
-        footer {
-            margin-top: 3rem; /* Espacio entre la lista y el footer */
-            font-size: 0.9rem;
-            color: var(--secondary-text-color);
-        }
-        
-        footer a {
-            color: var(--secondary-text-color); /* Color de enlace en footer */
-        }
+      footer {
+          margin-top: 40px;
+          border-top: 1px solid #eee;
+          padding-top: 20px;
+          font-size: 0.9rem;
+          color: #555;
+      }
+
+      .top-right-info {
+          position: fixed;
+          top: 40px;
+          right: 40px;
+          font-family: 'Roboto Mono', monospace;
+          color: #555;
+          font-size: 0.9rem;
+      }
+
+      .bottom-right-info {
+          position: fixed;
+          bottom: 40px;
+          right: 40px;
+          font-family: 'Roboto Mono', monospace;
+          color: #555;
+          font-size: 0.9rem;
+          text-align: right;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="top-right-info">
+      <p id="date-info">Cargando fecha...</p>
+    </div>
 
-    <div class="container">
-        <header class="header-content">
-            <h1>A</h1>
-            <p class="subtitle">Subtitulo</p>
-        </header>
+    <header>
+      <p>
+        <strong>3rror.xyz</strong> / <a href="#contacto">Más información</a> /
+        <a href="#contacto">Contacto</a>
+      </p>
+    </header>
 
-        <main>
-            <ul id="pdf-list" class="download-list">
-                </ul>
-        </main>
+    <main id="inicio">
+      <section id="descripcion">
+        <h3>Subtitulo</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at diam
+          consectetur, commodo libero quis, bibendum urna. Aliquam vehicula mi
+          convallis orci aliquam dignissim. Praesent interdum commodo diam non
+          placerat. Nullam porta orci nulla, nec tempor velit tincidunt a.
+        </p>
+        <p>
+          Suspendisse at interdum purus, eu pulvinar libero. Nulla elementum
+          suscipit ante, non vulputate eros feugiat ut. Donec lorem mauris,
+          dapibus sit amet erat eget, feugiat aliquam dui. Integer nisi ipsum,
+          lobortis aliquam ornare sed, pretium id nisi. Phasellus porta
+          convallis pulvinar.
+        </p>
+      </section>
 
-        <footer>
-            <p>Más información / <a href="#">Contacto</a></p>
-            <p>correo electrónico de contacto / @3rror.xyz</p>
-        </footer>
+      <section id="proyectos">
+        <h2>Proyectos</h2>
+        <p>
+          Puedes descargar un folleto sobre cada proyecto haciendo click en los
+          enlaces correspondientes.
+        </p>
+        
+        <ul id="pdf-list">
+          </ul>
+      </section>
+    </main>
+
+    <footer id="contacto">
+      <p>
+        <a href="mailto:3rr0r@czt.pe">3rr0r@czt.pe</a> /
+        <a
+          href="https://www.instagram.com/3rr0r.xyz/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >@3rr0r.xyz</a
+        >
+      </p>
+    </footer>
+
+    <div class="bottom-right-info">
+      <p id="ip-info">Cargando información de IP...</p>
     </div>
 
     <script src="js/main.js" defer></script>
 
-</body>
+    <script>
+      async function fetchIpInfo() {
+          const ipElement = document.getElementById('ip-info');
+          try {
+              const response = await fetch('https://ipapi.co/json/');
+              if (!response.ok) throw new Error('Failed to fetch IP info');
+              const data = await response.json();
+              const location = `${data.city || ''}, ${data.country_name || ''}`.replace(/, $/, '');
+              ipElement.textContent = `${data.ip} (${location || 'ubicación desconocida'})`;
+          } catch (error) {
+              console.error('Error al obtener la información de IP:', error);
+              ipElement.textContent = 'IP no disponible';
+          }
+      }
+
+      function displayDate() {
+          const dateElement = document.getElementById('date-info');
+          const today = new Date();
+          const formattedDate = `[${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}]`;
+          dateElement.textContent = formattedDate;
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+          fetchIpInfo();
+          displayDate();
+      });
+    </script>
+  </body>
 </html>
