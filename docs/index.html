@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3rror.xyz - Información</title>
+    <title>3rr0r</title>
     <style>
-      /* Estilo para replicar la estética del PDF */
       @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto+Mono:wght@400;500&display=swap');
 
       body {
@@ -14,7 +13,7 @@
           color: #111111;
           line-height: 1.6;
           width: 60%;
-          margin: 40px 0 40px 15%;
+          margin: 40px 0 100px 15%; /* Aumentado el margen inferior para dar espacio al footer */
           padding: 0 20px;
       }
 
@@ -30,7 +29,8 @@
       header {
           border-left: 2px solid #ccc;
           padding-left: 15px;
-          margin-bottom: 30px;
+          /* CAMBIO 3: Aumentado el espacio inferior al triple (de 30px a 90px) */
+          margin-bottom: 90px;
           font-family: 'Lora', sans-serif;
           font-size: 1.1rem;
       }
@@ -51,64 +51,63 @@
           margin-bottom: 5px;
       }
 
-      ol, ul {
+      ul {
           padding-left: 20px;
+          list-style: none; /* Quitando los puntos de la lista */
       }
 
       li {
           margin-bottom: 5px;
       }
 
+      /* CAMBIO 2: Nuevo estilo para el pie de página fijo */
       footer {
-          margin-top: 40px;
-          border-top: 1px solid #eee;
-          padding-top: 20px;
-          font-size: 0.9rem;
-          color: #555;
-      }
-
-      .top-right-info {
-          position: fixed;
-          top: 40px;
-          right: 40px;
-          font-family: 'Roboto Mono', monospace;
-          color: #555;
-          font-size: 0.9rem;
-      }
-
-      .bottom-right-info {
           position: fixed;
           bottom: 40px;
+          left: 15%;
           right: 40px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
           font-family: 'Roboto Mono', monospace;
           color: #555;
           font-size: 0.9rem;
+      }
+      
+      .footer-contact p, .footer-info p {
+          margin: 0;
+      }
+
+      .footer-info {
           text-align: right;
       }
+
     </style>
   </head>
   <body>
-    <div class="top-right-info">
-      <p id="date-info">Cargando fecha...</p>
-    </div>
-
+    
     <header>
       <p>
-        <strong>3rror.xyz</strong> / <a href="#contacto">Más información</a> /
+        <strong>3rr0r.xyz</strong> / <a href="#contacto">Más información</a> /
         <a href="#contacto">Contacto</a>
       </p>
     </header>
 
     <main id="inicio">
       <section id="descripcion">
+        <h3>Subtitulo</h3>
         <p>
-          3RR0R es un proyecto de investigación-creación basada en el desarrollo de obras y proyectos visuales. La mayoría de estos son resultado de procesos de trabajo colaborativo con diferentes creadorxs. Las obras están en venta y lo recaudado sirve principalmente para financiar nuevos proyectos y otras actividades afines.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at diam
+          consectetur, commodo libero quis, bibendum urna. Aliquam vehicula mi
+          convallis orci aliquam dignissim. Praesent interdum commodo diam non
+          placerat. Nullam porta orci nulla, nec tempor velit tincidunt a.
         </p>
         <p>
-          La iniciativa nace de un entendimiento de la colaboración como una práctica vital, relacionada con fenómenos como la solidaridad, convivencia, apoyo mútuo y horizontalidad; sin embargo, cada proyecto no está libre de conflictos, desencuentros y fricciones que, finalmente, se expresan materialmente.
-        </p>
-        <p>
-          También servirá como plataforma para circular/vender obra de artistas con los que he colaborado anteriormente y que considero afin a la propuesta. Estas obras no estarán sujetas a comisión sino a acuerdos específicos con lxs artistas (principalmente intercambios).
+          Suspendisse at interdum purus, eu pulvinar libero. Nulla elementum
+          suscipit ante, non vulputate eros feugiat ut. Donec lorem mauris,
+          dapibus sit amet erat eget, feugiat aliquam dui. Integer nisi ipsum,
+          lobortis aliquam ornare sed, pretium id nisi. Phasellus porta
+          convallis pulvinar.
         </p>
       </section>
 
@@ -125,20 +124,22 @@
     </main>
 
     <footer id="contacto">
-      <p>
-        <a href="mailto:3rr0r@czt.pe">3rr0r@czt.pe</a> /
-        <a
-          href="https://www.instagram.com/3rr0r.xyz/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >@3rr0r.xyz</a
-        >
-      </p>
+        <div class="footer-contact">
+            <p>
+                <a href="mailto:3rr0r@czt.pe">3rr0r@czt.pe</a> /
+                <a
+                  href="https://www.instagram.com/3rr0r.xyz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >@3rr0r.xyz</a
+                >
+            </p>
+        </div>
+        <div class="footer-info">
+            <p id="date-info">[3-9-2025]</p>
+            <p id="ip-info">Cargando IP...</p>
+        </div>
     </footer>
-
-    <div class="bottom-right-info">
-      <p id="ip-info">Cargando información de IP...</p>
-    </div>
 
     <script src="js/main.js" defer></script>
 
@@ -157,16 +158,10 @@
           }
       }
 
-      function displayDate() {
-          const dateElement = document.getElementById('date-info');
-          const today = new Date();
-          const formattedDate = `[${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}]`;
-          dateElement.textContent = formattedDate;
-      }
-
       document.addEventListener('DOMContentLoaded', () => {
           fetchIpInfo();
-          displayDate();
+          // La fecha se pone estática en el HTML y se puede quitar de aquí si se prefiere
+          // o mantenerla para que sea dinámica.
       });
     </script>
   </body>
