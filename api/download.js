@@ -7,8 +7,8 @@ import { google } from 'googleapis';
 // ¡Usa los IDs de tus archivos, no los nombres!
 const ALLOWED_FILES = {
   'fanzine_trilce.pdf': '1rZKugNVcgbEOcy_nVQGIctORsq-UllQv',
-  'guia-inicio-rapido.pdf': 'ID_UNICO_DE_TU_ARCHIVO_EN_DRIVE_2',
-  'manual-seguridad.pdf': 'ID_UNICO_DE_TU_ARCHIVO_EN_DRIVE_3'
+  'fanzine_trilce_2.pdf': '1SowgzGhUmD_zANG2s9fE1QoOJjKV5jAJ',
+  'fanzine_trilce_3.pdf': '1pEeJYbJqDzt7Z5hp1bnsu-Was5ZZQnlE'
 };
 
 export default async function handler(req, res) {
