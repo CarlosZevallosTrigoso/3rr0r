@@ -1,0 +1,8 @@
+{
+  "name": "3rr0r",
+  "version": "1.0.0",
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "@vercel/kv": "^1.0.1"
+  }
+}
