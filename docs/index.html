@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-ar" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3rr0r</title>
     <style>
@@ -13,7 +13,7 @@
           color: #111111;
           line-height: 1.6;
           width: 60%;
-          margin: 40px 0 100px 15%; /* Aumentado el margen inferior para dar espacio al footer */
+          margin: 40px 0 100px 15%;
           padding: 0 20px;
       }
 
@@ -29,7 +29,6 @@
       header {
           border-left: 2px solid #ccc;
           padding-left: 15px;
-          /* CAMBIO 3: Aumentado el espacio inferior al triple (de 30px a 90px) */
           margin-bottom: 90px;
           font-family: 'Lora', sans-serif;
           font-size: 1.1rem;
@@ -53,14 +52,24 @@
 
       ul {
           padding-left: 20px;
-          list-style: none; /* Quitando los puntos de la lista */
+          list-style: none;
       }
 
       li {
           margin-bottom: 5px;
       }
 
-      /* CAMBIO 2: Nuevo estilo para el pie de página fijo */
+      /* CAMBIO: Estilo para la fecha en la esquina superior derecha */
+      .top-right-info {
+          position: fixed;
+          top: 40px;
+          right: 40px;
+          font-family: 'Roboto Mono', monospace;
+          color: #555;
+          font-size: 0.9rem;
+      }
+
+      /* CAMBIO: El footer ahora solo contiene contacto e IP */
       footer {
           position: fixed;
           bottom: 40px;
@@ -86,6 +95,10 @@
   </head>
   <body>
     
+    <div class="top-right-info">
+        <p id="date-info">Cargando fecha...</p>
+    </div>
+
     <header>
       <p>
         <strong>3rr0r.xyz</strong> / <a href="#contacto">Más información</a> /
@@ -136,7 +149,6 @@
             </p>
         </div>
         <div class="footer-info">
-            <p id="date-info">[3-9-2025]</p>
             <p id="ip-info">Cargando IP...</p>
         </div>
     </footer>
@@ -158,10 +170,17 @@
           }
       }
 
+      // El script para la fecha ahora apunta al elemento de arriba
+      function displayDate() {
+          const dateElement = document.getElementById('date-info');
+          const today = new Date();
+          const formattedDate = `[${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}]`;
+          dateElement.textContent = formattedDate;
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
           fetchIpInfo();
-          // La fecha se pone estática en el HTML y se puede quitar de aquí si se prefiere
-          // o mantenerla para que sea dinámica.
+          displayDate();
       });
     </script>
   </body>
