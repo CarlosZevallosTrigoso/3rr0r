@@ -3,15 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descargar PDF Dinámico</title>
+    <title>Descarga de Documentos Personalizados</title>
     <style>
-      body { font-family: sans-serif; display: grid; place-content: center; text-align: center; min-height: 100vh; }
-      .download-button { background-color: #007bff; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; }
+        /* --- Estilos Generales --- */
+        :root {
+            --primary-color: #007bff;
+            --light-gray: #f4f4f9;
+            --dark-gray: #333;
+            --white: #ffffff;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: grid;
+            place-content: center;
+            min-height: 100vh;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        /* --- Contenedor Principal --- */
+        main {
+            width: 90vw;
+            max-width: 600px;
+            padding: 2rem 2.5rem;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        h1 {
+            margin-top: 0;
+            color: #1a1a1a;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Lista de PDFs --- */
+        #pdf-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #pdf-list li {
+            margin-bottom: 1.2rem;
+        }
+
+        #pdf-list a {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        #pdf-list a:hover,
+        #pdf-list a:focus {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* --- Pie de Página --- */
+        footer {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Descarga tu Documento Personalizado</h1>
-    <p>Recibirás un PDF con una página extra que incluye los detalles de tu descarga.</p>
-    <a href="/api/download" class="download-button">Descargar Documento PDF</a>
+
+    <main>
+        <header>
+            <h1>Documentos Disponibles 📄</h1>
+            <p>Haz clic en cualquier enlace para obtener tu documento con un registro de descarga personalizado.</p>
+        </header>
+
+        <ul id="pdf-list">
+            </ul>
+        
+        <footer>
+            <p>&copy; 2025 - Tu Nombre o Proyecto</p>
+        </footer>
+    </main>
+
+    <script src="js/main.js" defer></script>
+
 </body>
 </html>
