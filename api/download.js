@@ -1,10 +1,11 @@
 import { PDFDocument, rgb } from 'pdf-lib';
+import fontkit from '@pdf-lib/fontkit'; // <-- 1. IMPORTAR EL AYUDANTE
 import { kv } from '@vercel/kv';
 import { google } from 'googleapis';
 import fs from 'fs/promises';
 import path from 'path';
 
-// IMPORTANTE: Asegúrate de que estos IDs de archivo de Google Drive sean los correctos.
+// ... (tu sección ALLOWED_FILES sigue igual)
 const ALLOWED_FILES = {
   'fanzine_trilce.pdf': '1rZKugNVcgbEOcy_nVQGIctORsq-UllQv',
   'fanzine_trilce_2.pdf': '1SowgzGhUmD_zANG2s9fE1QoOJjKV5jAJ',
@@ -41,13 +42,16 @@ export default async function handler(req, res) {
     
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
 
-    // --- MEJORA: Cargar la fuente personalizada Fira Code ---
+    // --- AQUÍ ESTÁ LA LÍNEA NUEVA ---
+    pdfDoc.registerFontkit(fontkit); // <-- 2. PRESENTAR EL AYUDANTE
+
     const firaCodeRegularBytes = await fs.readFile(path.resolve('./assets/fonts', 'FiraCode-Regular.ttf'));
     const firaCodeBoldBytes = await fs.readFile(path.resolve('./assets/fonts', 'FiraCode-Bold.ttf'));
 
     const firaCodeFont = await pdfDoc.embedFont(firaCodeRegularBytes);
     const firaCodeBoldFont = await pdfDoc.embedFont(firaCodeBoldBytes);
     
+    // ... (el resto del código sigue exactamente igual)
     const originalPages = pdfDoc.getPages();
     const firstPage = originalPages[0];
     const { width, height } = firstPage.getSize();
@@ -67,12 +71,11 @@ export default async function handler(req, res) {
     const parrafo = `Has descargado el archivo ${requestedFile} desde 3rr0r.xyz el ${fecha} a las ${hora} desde la IP ${location}. Para más información sobre los proyectos puedes escribir un correo a: 3rr0r@czt.pe o seguir en Instagram a la cuenta @3rr0r.xyz`;
     const numeroDescarga = `Tu descarga es la Nro #${downloadCount}`;
 
-    // --- MEJORA: Usar Fira Code y tamaño 10pt ---
     newPage.drawText(parrafo, {
       x: 50,
       y: height - 100,
-      font: firaCodeFont, // <-- Usando Fira Code
-      size: 10,             // <-- Tamaño 10
+      font: firaCodeFont,
+      size: 10,
       lineHeight: 15,
       maxWidth: width - 100,
     });
@@ -80,8 +83,8 @@ export default async function handler(req, res) {
     newPage.drawText(numeroDescarga, {
       x: 50,
       y: height - 250,
-      font: firaCodeBoldFont, // <-- Usando Fira Code Bold
-      size: 11,               // <-- Tamaño 11 para resaltar un poco
+      font: firaCodeBoldFont,
+      size: 11,
     });
 
     const pdfBytes = await pdfDoc.save();
