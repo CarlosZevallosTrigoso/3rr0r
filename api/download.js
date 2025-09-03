@@ -40,7 +40,7 @@ export default async function handler(req, res) {
     const existingPdfBytes = fileResponse.data;
 
     // --- EL RESTO DEL CÓDIGO ES IGUAL ---
-    const downloadCount = await kv.incr('downloads');
+    const downloadCount = await kv.incr(`downloads:${requestedFile}`);
     const timestamp = new Date().toLocaleString('es-ES', { timeZone: 'America/Lima' });
     const ip = req.headers['x-forwarded-for'] || 'IP Desconocida';
     const country = req.headers['x-vercel-ip-country'] || 'País Desconocido';
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
     const textContent = `
       --- Registro de Descarga ---
       Documento: ${requestedFile}
-      Número de Descarga Global: #${downloadCount}
+      Número de Descarga: #${downloadCount}
       Fecha y Hora: ${timestamp}
       Ubicación (IP): ${location}
     `;
