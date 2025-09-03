@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const link = document.createElement('a');
 
             // URL de tu app en Vercel que genera los PDFs
-            const vercelAppUrl = 'https://3rr0r-3yh9apr2w-carloszevallostrigosos-projects.vercel.app';
+            const vercelAppUrl = 'https://3rr0r.vercel.app';
             
             link.href = `${vercelAppUrl}/api/download?file=${pdf.filename}`;
             link.textContent = pdf.title;
