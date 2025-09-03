@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "pdf-lib": "^1.17.1",
-    "@vercel/kv": "^1.0.1"
+    "@vercel/kv": "^1.0.1",
+    "googleapis": "^137.1.0"
   }
 }
