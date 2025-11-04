@@ -1,14 +1,15 @@
 {
+  "version": 2,
   "functions": {
     "api/download.js": {
       "memory": 1024,
-      "maxDuration": 15
+      "maxDuration": 30
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/download",
-      "destination": "/api/download"
+      "src": "/api/download",
+      "dest": "/api/download.js"
     }
   ]
 }
